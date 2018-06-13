@@ -115,6 +115,15 @@ Page({
     footBtn: true,
     isshared: false
   },
+  countSum: function () {
+    const that = this;
+    let sum = 0;
+    const numArr = switchData('series')[1].value;
+    for (let i = 0; i < numArr.length; i++) {
+      sum += parseFloat(numArr[i]);
+    }
+    return sum
+  },
   onLoad: function (ops) {
     const that = this;
     wx.hideShareMenu();
@@ -124,7 +133,8 @@ Page({
       if (app.globalData.company) {
         that.viewQuestionnaireRatio();
         that.setData({
-          company: app.globalData.company
+          company: app.globalData.company,
+          sum: that.countSum(),
         })
       }
     } else {//分享进入
@@ -150,7 +160,7 @@ Page({
       const shareObj = {};
       shareObj.title = that.data.company + '的运营效率超过了' + that.data.percent + '%的参测企业。';
       shareObj.path = 'pages/radar/radar?share=1&indicator=' + indicatorData + '&series=' + seriesData + '&sum=' + that.data.sum + '&percent=' + that.data.percent + '&company=' + that.data.company;
-      shareObj.success = function(res){
+      shareObj.success = function (res) {
         that.data.isshared = true;
         that.updateQuestionnaireMain(that.data.isshared);
         wx.showToast({
@@ -166,7 +176,7 @@ Page({
   },
   goExercise: function () {
     const that = this;
-    if (!that.data.isshared){
+    if (!that.data.isshared) {
       that.updateQuestionnaireMain(that.data.isshared);
     }
     wx.navigateTo({
@@ -178,39 +188,38 @@ Page({
       url: '../index/index',
     })
   },
-  viewQuestionnaireRatio: function(){
+  viewQuestionnaireRatio: function () {
     const that = this;
     wx.request({
       url: app.requests.service.viewQuestionnaireRatio,
       data: {
         main_id: app.globalData.main_id
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res);
         that.setData({
-          sum: res.data.body[0].totalnum,
           percent: res.data.body[0].ratio
         })
       },
-      fail: function(res) {
-      
+      fail: function (res) {
+
       }
     })
   },
-  updateQuestionnaireMain: function(state){
+  updateQuestionnaireMain: function (state) {
     const that = this;
     wx.request({
       url: app.requests.service.updateQuestionnaireMain,
       method: 'POST',
       data: {
-        isshared: state?1:0,
-        subscriberate: state?0:0.25,
+        isshared: state ? 1 : 0,
+        subscriberate: state ? 0 : 0.25,
         main_id: app.globalData.main_id
       },
-      success: function(res) {
+      success: function (res) {
         console.log(res);
       },
-      fail: function(res) {
+      fail: function (res) {
 
       }
     })

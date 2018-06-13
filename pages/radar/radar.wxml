@@ -21,6 +21,6 @@
   </view>
   <view class='btnBox' hidden='{{footBtn}}'>
     <!-- <button class='btn' style='background-color:#04c38e; width:320rpx;' bindtap='goIndex'>我也测一下</button> -->
-    <navigator open-type='reLaunch' url='../index/index' class='btn' style='background-color:#04c38e; width:320rpx;'>我也测一下</navigator>
+    <navigator open-type='reLaunch' url='../index/index' class='btn navBtn' style='background-color:#04c38e; width:320rpx;'>我也测一下</navigator>
   </view>
 </view>

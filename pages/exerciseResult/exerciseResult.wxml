@@ -19,7 +19,7 @@
       <view class='inputView'>
         <view class='inputTitle'>联系电话</view>
         <view class='inputs'>
-          <input class='input' placeholder='请输入联系电话' type='number' name="phone"></input>
+          <input class='input' placeholder='请输入手机号码' type='number' name="phone"></input>
           <text class='holder'>*</text>
         </view>
       </view>

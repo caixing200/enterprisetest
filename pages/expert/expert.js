@@ -10,7 +10,7 @@ Page({
   data: {
     isHide: true,
     newTime: '',
-    company: ''
+    company: '',
   },
 
   /**

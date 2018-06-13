@@ -7,7 +7,7 @@ Page({
    */
   data: {
     company: ''
-  
+
   },
 
   /**
@@ -18,57 +18,43 @@ Page({
     that.setData({
       company: app.globalData.company
     })
-  
+
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
-  },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-  sendData: function(e){
+  sendData: function (e) {
     const that = this;
     const data = {};
     let sendState = true;
-    data.company = e.detail.value.enterprise;
-    data.linkman = e.detail.value.person;
-    data.phone = e.detail.value.phone;
+    data.company = that.strTrim(e.detail.value.enterprise,'g');
+    data.linkman = that.strTrim(e.detail.value.person, 'g');
+    data.phone = that.strTrim(e.detail.value.phone, 'g');
     data.requirements = e.detail.value.textarea;
     data.main_id = app.globalData.main_id;
     if (!data.company) {
@@ -95,7 +81,15 @@ Page({
       sendState = false;
       return
     }
-    if (sendState){
+    if (!that.checkPhoneNum(data.phone)) {
+      wx.showModal({
+        content: '请输入正确的手机号码',
+        showCancel: false
+      })
+      sendState = false;
+      return
+    }
+    if (sendState) {
       const url = app.requests.service.updateQuestionnaireMain;
       console.log(url);
       console.log(data);
@@ -103,20 +97,36 @@ Page({
         url: url,
         data: data,
         method: 'POST',
-        success: function(res) {
+        success: function (res) {
           console.log(res);
           that.updateQuestionnaireMain();
           wx.navigateTo({
             url: '../boon/boon?company=' + data.company,
           })
         },
-        fail: function(res) {
+        fail: function (res) {
           console.log(res);
         }
       })
     }
   },
-  goIndex: function(){
+  checkPhoneNum: function (num) {
+    const reg = /^[1][3,4,5,7,8][0-9]{9}$/;
+    if (reg.test(num)) {
+      return true
+    } else {
+      return false
+    }
+  },
+  strTrim: function (str, glo) {
+    var result;
+    result = str.replace(/(^\s+)|(\s+$)/g, '');
+    if (glo.toLowerCase() === 'g') {
+      result = str.replace(/\s/g, "");
+    }
+    return result
+  },
+  goIndex: function () {
     app.globalData.flag = true;
     wx.reLaunch({
       url: '../index/index',

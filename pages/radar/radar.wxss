@@ -54,7 +54,7 @@ ec-canvas {
 }
 
 .percent {
-  font-size: 66rpx;
+  font-size: 56rpx;
   float: right;
 }
 
@@ -69,4 +69,8 @@ ec-canvas {
   color: #fff;
   font-weight: 600;
   font-size: 36rpx;
+}
+.navBtn {
+  text-align: center;
+  border-radius: 12rpx;
 }
