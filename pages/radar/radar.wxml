@@ -1,0 +1,26 @@
+<!--index.wxml-->
+<view class="rootNode">
+  <view class='titles'>
+    <view class='company'>{{company}}</view>
+    <view class='companySum'>
+      <text>运营效率自测综合得分</text>
+      <text class='sum'>{{sum}}分</text>
+    </view>
+    <view class='companyPercent'>
+      <text>运营效率超过了</text>
+      <text class='percent'>{{percent}}%</text>
+      <text>的参测企业</text>
+    </view>
+  </view>
+  <view class='canvasBox'>
+    <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
+  </view>
+  <view class='btnBox' hidden='{{!footBtn}}'>
+    <button class='btn' style='background-color:#ff0000;' open-type='share'>去秀一下</button>
+    <button class='btn' style='background-color:#04c38e;' bindtap='goExercise'>彩蛋</button>
+  </view>
+  <view class='btnBox' hidden='{{footBtn}}'>
+    <!-- <button class='btn' style='background-color:#04c38e; width:320rpx;' bindtap='goIndex'>我也测一下</button> -->
+    <navigator open-type='reLaunch' url='../index/index' class='btn' style='background-color:#04c38e; width:320rpx;'>我也测一下</navigator>
+  </view>
+</view>

@@ -1,0 +1,20 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/testPage/testPage",
+    "pages/testResult/testResult",
+    "pages/radar/radar",
+    "pages/exercise/exercise",
+    "pages/expert/expert",
+    "pages/exercisePage/exercisePage",
+    "pages/exerciseResult/exerciseResult",
+    "pages/boon/boon"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#04c38e",
+    "navigationBarTitleText": "企业自测评估",
+    "navigationBarTextStyle": "white"
+  },
+  "debug": true
+}

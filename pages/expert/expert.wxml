@@ -1,0 +1,72 @@
+<!--pages/expert/expert.wxml-->
+<view class='rootNode'>
+  <view class='bodys' wx:if='{{isHide}}'>
+    <view class='pages'>
+      <view class='title1 txt-center'>智 造 云 管 家</view>
+      <view class='title2 txt-center iconfont' style='font-size:30rpx;'>让小规模制造业运营效率倍增的EOM系统</view>
+      <view class='views'>
+        <view class='viewTop'>
+          <view></view>
+        </view>
+        <view class='viewCenter'>
+          <view class='viewTxt txt-center'>
+            <view>生产运营</view>
+            <view>管理模块</view>
+          </view>
+          <view class='viewTxt txt-center'>
+            <view>运营数据</view>
+            <view>电子看板</view>
+          </view>
+          <view class='viewTxt txt-center'>
+            <view>智能仓储</view>
+            <view>管理模块</view>
+          </view>
+        </view>
+        <view class='viewFoot'>
+          <view>
+            <text space='emsp'>  温州市智能制造研究院向温州地区的企业免费提供10套“智造云管家”全功能100用户版3个月使用权，价值2.8万元/套。</text>
+          </view>
+          <view>
+            <text space='emsp'>  欢迎企业申请使用！</text>
+          </view>
+        </view>
+      </view>
+      <view class='foots txt-center' style='font-size:30rpx;'>赞助单位：浙江顶智智能技术有限公司</view>
+    </view>
+    <view class='btnBox'>
+      <button class='btn' catchtap='goBack'>取消</button>
+      <button class='btn' catchtap='sendApply'>申请</button>
+    </view>
+  </view>
+  <view class='bodys' wx:else>
+    <view class='pages'>
+      <view class='title3 txt-center'>
+        <view>浙江顶智智能技术有限公司</view>
+        <view>服务预约单</view>
+      </view>
+      <view class='applyBody'>
+        <view class='applyTxt'>
+          <view class='applyTxtTitle'>申请企业：</view>
+          <view class='applyTxts'>{{company}}</view>
+        </view>
+        <view class='applyTxt'>
+          <view class='applyTxtTitle'>申请内容：</view>
+          <view class='applyTxts'>
+            <text>智造云管家</text>
+            <text>100用户版</text>
+            <text>3个月使用权</text>
+          </view>
+        </view>
+        <view class='applyTxt'>
+          <view class='applyTxtTitle'>申请时间：</view>
+          <view class='applyTxts'>{{newTime}}</view>
+        </view>
+        <view class='applyTxt' style='margin-top:70rpx;'>我们的服务人员将尽快与您联系</view>
+      </view>
+    </view>
+    <view class='btnBox'>
+      <button class='btn' catchtap='goIndex'>退出</button>
+      <button class='btn' catchtap='saveThis'>保存</button>
+    </view>
+  </view>
+</view>

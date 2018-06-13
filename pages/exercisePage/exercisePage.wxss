@@ -1,0 +1,53 @@
+/* pages/exercisePage/exercisePage.wxss */
+
+.scrollBox {
+  height: 90%;
+  box-sizing: border-box;
+  padding: 20rpx 30rpx 0 30rpx;
+}
+
+.btnBox {
+  height: 10%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.btn:nth-child(2) {
+  background-color: #04c38e;
+  color: #fff;
+}
+
+.exerices {
+  float: left;
+  width: 50%;
+  height: 340rpx;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+
+.exericeImg {
+  height: 100%;
+  background-image: url(http://p9jd05hzv.bkt.clouddn.com/specialist.jpg);
+  background-size: 1100% 300%;
+  background-repeat: no-repeat;
+}
+
+.imgCover {
+  height: 100%;
+  box-sizing: border-box;
+  border-top: 18rpx solid #fff;
+  border-left: 18rpx solid #fff;
+  border-right: 18rpx solid #fff;
+  border-bottom: 14rpx solid #fff;
+}

@@ -1,0 +1,35 @@
+<!--pages/testPage.wxml-->
+<view class='rootNode'>
+  <view class='swiperBox' style=''>
+    <view style='width:{{testListLength*100}}%;height:100%;transform:translate(-{{testIndex*step}}%, 0px) translateZ(0px);transition:transform 200ms linear 200ms'>
+      <block wx:for='{{testList}}'>
+        <view style="position: absolute; width: {{step}}%; height: 100%;transform: translate({{index*100}}%, 0px);">
+          <view class='testBox'>
+            <view>
+              <view>
+                <text class='testTitle'>{{item[0].title}}</text>
+              </view>
+              <view>
+                <text hidden='{{!item[0].remarks}}' class='testTitle'>（{{item[0].remarks}}）</text>
+              </view>
+            </view>
+            <view class='testView'>
+              <view class='test' wx:for="{{item}}" wx:for-item="oitem" wx:for-index="oindex" hover-class='btnHover' hover-stay-time='500' data-index='{{index}}' data-oindex="{{oindex}}" data-questid='{{oitem.question_id}}' data-answerid='{{oitem.answer_id}}' bindtap='nextTest'>
+                <text class='testOps'>● {{oitem.key}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </block>
+    </view>
+
+  </view>
+  <view class='foot'>
+    <view class='txt-center'>{{percent}}%</view>
+    <view class='guage'>
+      <view class='guagebar'>
+        <view wx:for='{{testList}}' class='bar {{index==0?"barBefore":""}} {{index==(testListLength-1)?"barAfter":""}} {{styleState[index]?"barBgc":""}}' style='width:{{step}}%;height:40rpx;'></view>
+      </view>
+    </view>
+  </view>
+</view>

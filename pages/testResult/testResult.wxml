@@ -1,0 +1,13 @@
+<!--pages/testResult/testResult.wxml-->
+<view class='rootNode'>
+  <view class='pages results'>
+    <view class='title'>定制您的专属运营效率图：</view>
+    <view class='inputs'>
+      <input placeholder='请填写企业名称' confirm-type='完成' bindblur='userInput'></input>
+      <text>*</text>
+    </view>
+    <view class='btns'>
+      <button bindtap='sendResults'>运营效率得分</button>
+    </view>
+  </view>
+</view>

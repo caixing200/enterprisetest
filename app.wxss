@@ -1,0 +1,14 @@
+/**app.wxss**/
+@import "./utils/font.wxss";
+page {
+  height: 100%;
+}
+.rootNode {
+  height: 100%;
+  position: relative;
+}
+.txt-center {
+  text-align: center;
+}
+
+

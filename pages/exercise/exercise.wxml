@@ -1,0 +1,30 @@
+<!--pages/exercise/exercise.wxml-->
+<view class='rootNode'>
+  <view class='rootBodys'>
+    <view class='title txt-center'>
+      <view style='font-size: 80rpx;font-weight: 600;'>公益性</view>
+      <view style='font-size: 66rpx;font-weight: 600;'>专家咨询服务</view>
+    </view>
+    <view class='num txt-center' style='font-size: 40rpx;font-weight: 600;margin: 20px 0;wxcs_style_margin: 40rpx 0;'>第1期</view>
+    <view class='body' style='font-size: 36rpx;font-weight: 600;margin-bottom: 60rpx;'>
+      <view class='iconfont' style='margin-bottom: 20rpx;'>时间：2018年7月-8月</view>
+      <view class='iconfont' style='margin-bottom: 20rpx;'>对象：温州地区的制造型企业</view>
+      <view class='iconfont'>说明：</view>
+      <view>
+        <text space='emsp' class='iconfont'>  企业在此提出申请，研究院工作人员会与您电话沟通，了解企业需求，并安排相应的专家组成员提供免费的咨询服务</text>
+      </view>
+    </view>
+    <view class='foot' style='font-size: 30rpx;font-weight: 600;'>
+      <view class='txt-center' style='margin-bottom: 20rpx;'>
+        <text class=''>温州市智能制造研究院</text>
+      </view>
+      <view class='txt-center'>
+        <text class=''>华中科技大学温州研究院</text>
+      </view>
+    </view>
+  </view>
+  <view class='btnBox'>
+    <button class='btn' bindtap='goIndex'>取消</button>
+    <button class='btn' bindtap='goExercisePage'>进入</button>
+  </view>
+</view>

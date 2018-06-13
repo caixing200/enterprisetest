@@ -1,0 +1,36 @@
+<!--pages/exerciseResult/exerciseResult.wxml-->
+<view class='rootNode'>
+  <form bindsubmit='sendData'>
+    <view class='inputBox'>
+      <view class='inputView'>
+        <view class='inputTitle'>企业名称</view>
+        <view class='inputs'>
+          <input class='input' placeholder='请输入企业名称' type='text' name="enterprise" value='{{company}}'></input>
+          <text class='holder'>*</text>
+        </view>
+      </view>
+      <view class='inputView'>
+        <view class='inputTitle'>联系人</view>
+        <view class='inputs'>
+          <input class='input' placeholder='请输入联系人' type='text' name="person"></input>
+          <text class='holder'>*</text>
+        </view>
+      </view>
+      <view class='inputView'>
+        <view class='inputTitle'>联系电话</view>
+        <view class='inputs'>
+          <input class='input' placeholder='请输入联系电话' type='number' name="phone"></input>
+          <text class='holder'>*</text>
+        </view>
+      </view>
+    </view>
+    <view class='textArea'>
+      <view class='inputTitle'>需求简述</view>
+      <view class='textA'><textarea placeholder='最多150字' maxlength='150' name="textarea"></textarea></view>
+    </view>
+    <view class='btnBox'>
+      <button class='btn' bindtap='goIndex'>取消</button>
+      <button class='btn' form-type='submit'>提交</button>
+    </view>
+  </form>
+</view>

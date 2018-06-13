@@ -1,0 +1,31 @@
+/* pages/boon/boon.wxss */
+
+.btnBox {
+  height: 10%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  width: 400rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+  background-color: #04c38e;
+  color: #fff;
+}
+
+.text {
+  height: 90%;
+  box-sizing: border-box;
+  padding: 15% 5% 0 5%;
+}
+.texts {
+  font-size: 40rpx;
+  font-weight: 800;
+  margin-bottom: 40rpx;
+}

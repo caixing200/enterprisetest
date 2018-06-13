@@ -1,0 +1,21 @@
+<!--pages/boon/boon.wxml-->
+<view class='rootNode'>
+  <view class='text'>
+    <view class='texts'>{{company}}：</view>
+    <view class='texts'>
+      <text space='emsp'>  由于预约企业较多，请您保持耐心，我们的工作人员将尽快与您联系。</text>
+    </view>
+    <view class='texts'>
+      <text space='emsp'>  如有问题，可直接咨询研究院工作人员</text>
+    </view>
+    <view class='texts'>
+      <text space='emsp'>  咨询顾问：刘峥</text>
+    </view>
+    <view class='texts'>
+      <text space='emsp'>  联系电话：</text><text space='nbsp'>189 8979 2655</text>
+    </view>
+  </view>
+  <view class='btnBox'>
+    <button class='btn' bindtap='goExpert'>福利</button>
+  </view>
+</view>

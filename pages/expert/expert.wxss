@@ -1,0 +1,116 @@
+/* pages/expert/expert.wxss */
+.bodys {
+  height: 100%;
+}
+.btnBox {
+  height: 10%;
+  box-sizing: border-box;
+  padding: 0 40rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btn {
+  width: 200rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 40rpx;
+  font-weight: 500;
+}
+
+.btn:nth-child(2) {
+  background-color: #04c38e;
+  color: #fff;
+}
+.pages {
+  height: 90%;
+  box-sizing: border-box;
+  padding: 5% 5% 0 5%;
+}
+.title1 {
+  font-size: 50rpx;
+  font-weight: 700;
+  height: 10%;
+}
+.title2 {
+  font-weight: 700;
+  height: 10%;
+}
+.views {
+  height: 72%;
+  box-sizing: border-box;
+  padding: 0 10rpx;
+}
+.foots {
+  height: 8%;
+  line-height:3;
+}
+.viewTop {
+  height: 15%;
+  border-top: 2rpx solid #000;
+}
+.viewTop view {
+  height: 100%;
+  box-sizing: border-box;
+  width: 50%;
+  border-right: 2rpx solid #000;
+}
+.viewCenter {
+  height: 35%;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+
+}
+.viewTxt {
+  box-sizing: border-box;
+  width: 200rpx;
+  height: 200rpx;
+  vertical-align: middle;
+  background-color: #04c38e;
+  border: 2rpx solid #000;
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.viewFoot {
+  height: 50%;
+  box-sizing: border-box;
+  padding: 0 20rpx;
+  border: 2rpx solid #000;
+  background-color: #ff0000;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.title3 {
+  height: 25%;
+  box-sizing: border-box;
+  padding-top: 40rpx;
+  font-weight: 600;
+}
+.applyBody {
+  height: 75%;
+}
+.applyTxt {
+  box-sizing: border-box;
+  display: flex;
+  margin-bottom: 30rpx;
+  font-size: 36rpx;
+  font-weight: 500;
+}
+.applyTxtTitle {
+  flex: 3;
+}
+.applyTxts {
+  flex: 7;
+}
+.applyTxts:nth-child(2) {
+  display: flex;
+  flex-direction: column;
+}

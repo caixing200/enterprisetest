@@ -1,0 +1,16 @@
+<!--pages/exercisePage/exercisePage.wxml-->
+<view class='rootNode'>
+  <view class='scrollBox'>
+    <scroll-view style='height:100%;' class='scrollView' scroll-y>
+      <view wx:for="{{persons}}" class='exerices'>
+        <view class='exericeImg' style='background-position: {{(index>21?(index-22):(index>10?index-11:index)) * 10}}% {{index>21?100:(index>10?50:0)}}%;'>
+          <view class='imgCover'></view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='btnBox'>
+    <button class='btn' bindtap='goBack'>上一页</button>
+    <button class='btn' bindtap='goExerciseResult'>报名</button>
+  </view>
+</view>
