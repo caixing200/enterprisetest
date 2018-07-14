@@ -1,6 +1,21 @@
 // pages/testPage.js
 //const testList = require('../../utils/testList.js');
 const app = getApp();
+const formatTime = date => {
+  const year = date.getFullYear()
+  const month = (date.getMonth() + 1)
+  const day = date.getDate()
+  const hour = date.getHours()
+  const minute = date.getMinutes()
+  const second = date.getSeconds()
+
+  return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
+}
+
+const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
 
 Page({
 
@@ -14,7 +29,9 @@ Page({
     testIndex: 0,
     styleState: [],
     percent: 0,
-    answerList: []
+    answerList: [],
+    testStartDate: '',
+    testEndDate: ''
   },
 
   /**
@@ -53,6 +70,8 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    const that = this;
+    that.data.testStartDate = formatTime(new Date());
   },
 
   /**
@@ -102,10 +121,11 @@ Page({
     },()=>{
       if (barState){
         clearTimeout(that.data.navTimer);
+        that.data.testEndDate = formatTime(new Date());
         that.data.navTimer = setTimeout(function(){
           app.globalData.results = that.data.answerList
           wx.redirectTo({
-            url: '../testResult/testResult',
+            url: '../testResult/testResult?testStartDate=' + that.data.testStartDate + '&testEndDate=' + that.data.testEndDate,
             //url: '../radar/radar',
           },500)
         })

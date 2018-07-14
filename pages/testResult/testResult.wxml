@@ -3,7 +3,7 @@
   <view class='pages results'>
     <view class='title'>定制您的专属运营效率图：</view>
     <view class='inputs'>
-      <input placeholder='请填写企业名称' confirm-type='完成' bindblur='userInput'></input>
+      <input type="text" placeholder='请填写企业名称' confirm-type='done' bindblur='userInput' maxlength='20'></input>
       <text>*</text>
     </view>
     <view class='btns'>

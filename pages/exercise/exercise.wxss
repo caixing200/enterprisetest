@@ -4,7 +4,7 @@
   padding: 0 60rpx 0 60rpx;
 }
 .iconfont {
-  font-size: 36rpx;
+  font-size: 40rpx;
 }
 .btnBox {
   height: 10%;
@@ -27,5 +27,12 @@
 .rootBodys {
   height: 90%;
   box-sizing: border-box;
-  padding-top: 100rpx;
+  padding-top: 5%;
+  position: relative;
+}
+.foot {
+  position: absolute;
+  bottom: 10rpx;
+  left: 50%;
+  transform: translate(-50%,0);
 }

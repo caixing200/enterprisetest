@@ -1,18 +1,19 @@
 <!--pages/exerciseResult/exerciseResult.wxml-->
 <view class='rootNode'>
+  <view style='height:30%;'></view>
   <form bindsubmit='sendData'>
     <view class='inputBox'>
       <view class='inputView'>
         <view class='inputTitle'>企业名称</view>
         <view class='inputs'>
-          <input class='input' placeholder='请输入企业名称' type='text' name="enterprise" value='{{company}}'></input>
+          <input class='input' placeholder='请输入企业名称' type='text' name="enterprise" value='{{company}}' maxlength="20"></input>
           <text class='holder'>*</text>
         </view>
       </view>
       <view class='inputView'>
         <view class='inputTitle'>联系人</view>
         <view class='inputs'>
-          <input class='input' placeholder='请输入联系人' type='text' name="person"></input>
+          <input class='input' placeholder='请输入联系人' type='text' name="person" maxlength="20"></input>
           <text class='holder'>*</text>
         </view>
       </view>

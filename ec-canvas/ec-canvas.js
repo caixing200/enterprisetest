@@ -1,5 +1,7 @@
 import WxCanvas from './wx-canvas';
-import * as echarts from './echarts.min';
+import * as echarts from './echarts';
+
+const app = getApp()
 
 let ctx;
 
@@ -19,10 +21,10 @@ Component({
 
   },
 
-  ready: function () {
+  ready: function() {
     if (!this.data.ec) {
-      console.warn('组件需绑定 ec 变量，例：<ec-canvas id="mychart-dom-bar" '
-        + 'canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>');
+      console.warn('组件需绑定 ec 变量，例：<ec-canvas id="mychart-dom-bar" ' +
+        'canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>');
       return;
     }
 
@@ -32,14 +34,14 @@ Component({
   },
 
   methods: {
-    init: function (callback) {
+    init: function(callback) {
       const version = wx.version.version.split('.').map(n => parseInt(n, 10));
-      const isValid = version[0] > 1 || (version[0] === 1 && version[1] > 9)
-        || (version[0] === 1 && version[1] === 9 && version[2] >= 91);
+      const isValid = version[0] > 1 || (version[0] === 1 && version[1] > 9) ||
+        (version[0] === 1 && version[1] === 9 && version[2] >= 91);
       if (!isValid) {
-        console.error('微信基础库版本过低，需大于等于 1.9.91。'
-          + '参见：https://github.com/ecomfe/echarts-for-weixin'
-          + '#%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82');
+        console.error('微信基础库版本过低，需大于等于 1.9.91。' +
+          '参见：https://github.com/ecomfe/echarts-for-weixin' +
+          '#%E5%BE%AE%E4%BF%A1%E7%89%88%E6%9C%AC%E8%A6%81%E6%B1%82');
         return;
       }
 
@@ -55,21 +57,32 @@ Component({
       query.select('.ec-canvas').boundingClientRect(res => {
         if (typeof callback === 'function') {
           this.chart = callback(canvas, res.width, res.height);
-        }
-        else if (this.data.ec && this.data.ec.onInit) {
+        } else if (this.data.ec && this.data.ec.onInit) {
           this.chart = this.data.ec.onInit(canvas, res.width, res.height);
         }
       }).exec();
     },
 
     canvasToTempFilePath(opt) {
+      const that = this
       if (!opt.canvasId) {
         opt.canvasId = this.data.canvasId;
       }
-      
-      ctx.draw(true, () => {
-        wx.canvasToTempFilePath(opt, this);
-      });
+      console.log(1);
+      if (app.globalData.mySystemInfo.platform == "ios") { //ios
+        ctx.draw(true, () => {
+          console.log(app.globalData.mySystemInfo)
+          wx.hideLoading()
+          wx.canvasToTempFilePath(opt, that);
+        });
+      } else { //安卓
+        ctx.draw(true, setTimeout(function() {
+          console.log(app.globalData.mySystemInfo)
+          wx.hideLoading();
+          wx.canvasToTempFilePath(opt, that);
+        }, 3000));
+      }
+
     },
 
     touchStart(e) {

@@ -6,12 +6,12 @@
 
 .titles {
   box-sizing: border-box;
-  height: 25%;
-  padding: 40rpx 60rpx 0 60rpx;
+  height: 32%;
+  padding: 40rpx 30rpx 0 30rpx;
 }
 
 .canvasBox {
-  height: 65%;
+  height: 58%;
 }
 
 .btnBox {
@@ -29,9 +29,10 @@ ec-canvas {
 }
 
 .company {
-  font-size: 50rpx;
+  font-size: 60rpx;
   font-weight: 700;
   text-align: center;
+
 }
 
 .companySum {
@@ -63,14 +64,52 @@ ec-canvas {
 }
 
 .btn {
-  width: 220rpx;
+  width: 190rpx;
   height: 80rpx;
   line-height: 80rpx;
   color: #fff;
   font-weight: 600;
-  font-size: 36rpx;
+  font-size: 28rpx;
 }
+
 .navBtn {
   text-align: center;
   border-radius: 12rpx;
+}
+
+.selects {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 9999;
+}
+
+.selectBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400rpx;
+  height: 300rpx;
+  border-radius: 12rpx;
+}
+
+.selectBtn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  font-weight: 600;
+  font-size: 26rpx;
+  margin-bottom: 10rpx;
+}
+.canvasView {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  height: 100%;
 }

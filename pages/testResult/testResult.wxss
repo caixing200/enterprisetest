@@ -1,6 +1,11 @@
 /* pages/testResult/testResult.wxss */
 .rootNode {
-  position: relative
+  position: relative;
+  background-image: url(http://p9jd05hzv.bkt.clouddn.com/times.png);
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+  background-position-y: 0rpx;
+  box-sizing: border-box;
 }
 .pages {
   position: absolute;
@@ -11,7 +16,7 @@
 }
 .results {
   box-sizing: border-box;
-  padding: 60rpx 40rpx;
+  padding: 420rpx 40rpx 0 40rpx;
   overflow: hidden;
 }
 .title {
@@ -37,7 +42,7 @@
 .btns {
   box-sizing: border-box;
   padding: 0 150rpx;
-  margin-top: 600rpx;
+  margin-top: 120rpx;
 }
 ec-canvas {
   width: 100%;

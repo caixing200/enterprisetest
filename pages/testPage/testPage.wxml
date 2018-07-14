@@ -14,9 +14,16 @@
               </view>
             </view>
             <view class='testView'>
-              <view class='test' wx:for="{{item}}" wx:for-item="oitem" wx:for-index="oindex" hover-class='btnHover' hover-stay-time='500' data-index='{{index}}' data-oindex="{{oindex}}" data-questid='{{oitem.question_id}}' data-answerid='{{oitem.answer_id}}' bindtap='nextTest'>
+              <radio-group>
+                <label class="test radio" wx:for="{{item}}" wx:for-item="oitem" wx:for-index="oindex">
+                  <view class='test testOps' hover-class='btnHover' hover-stay-time='500' data-index='{{index}}' data-oindex="{{oindex}}" data-questid='{{oitem.question_id}}' data-answerid='{{oitem.answer_id}}' bindtap='nextTest'>
+                    <radio />{{oitem.key}}
+                  </view>
+                </label>
+              </radio-group>
+              <!-- <view class='test' wx:for="{{item}}" wx:for-item="oitem" wx:for-index="oindex" hover-class='btnHover' hover-stay-time='500' data-index='{{index}}' data-oindex="{{oindex}}" data-questid='{{oitem.question_id}}' data-answerid='{{oitem.answer_id}}' bindtap='nextTest'>
                 <text class='testOps'>● {{oitem.key}}</text>
-              </view>
+              </view> -->
             </view>
           </view>
         </view>

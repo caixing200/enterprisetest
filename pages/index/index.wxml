@@ -8,12 +8,12 @@
       <text class='title-style'>运营效率自测</text>
     </view>
   </view>
-  <view class='txt-center'>
+  <view class='txt-center txt'>
     <view class='btnBox btnStyle'>晒一晒你的企业有多快</view>
   </view>
   <view class='footMargin'>
     <view class='txt-center marginB'><text class='iconfont footStyle'>温州市智能制造研究院</text></view>
-    <view class='txt-center'><text class='iconfont footStyle'>华中科技大学温州研究院</text></view>
+    <view class='txt-center'><text class='iconfont footStyle'>华中科技大学温州先进制造技术研究院</text></view>
   </view>
   <view></view>
 </view>

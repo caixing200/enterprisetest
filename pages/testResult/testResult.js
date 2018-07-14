@@ -10,9 +10,11 @@ Page({
     enterprise: '',
     isData: false,
     isUserData: false,
-    timer: null
+    timer: null,
+    testEndDate: '',
+    testStartDate: ''
   },
-  sendResults: function () {
+  sendResults: function() {
     const that = this;
     if (!that.data.enterprise) {
       wx.showToast({
@@ -25,10 +27,18 @@ Page({
       //在这里调接口
       const company = that.data.enterprise;
       const qalist = app.globalData.results;
-      const data = { company, qalist };//发送的数据
+      const testStartDate = that.data.testStartDate;
+      const testEndDate = that.data.testEndDate;
+      const data = {
+        company,
+        qalist,
+        testStartDate,
+        testEndDate
+      }; //发送的数据
       console.log(data);
       wx.showLoading({
         title: '计算中...',
+        mask: true
       })
       wx.request({
         url: app.requests.service.saveQuestionnaireMain,
@@ -37,39 +47,39 @@ Page({
         // header: {
         //   'content-type': 'application/x-www-form-urlencoded' 
         // },
-        success: function (res) {
-          
+        success: function(res) {
+          wx.hideLoading();
           console.log(res);
-          const data = JSON.parse(res.data.body);
-          //const code = res.data.code;
-          if (data.code == '1') {
-            // wx.showToast({
-            //   title: data.msg,
-            //   mask: true
-            // })
-            app.globalData.company = company;
-            app.globalData.main_id = data.main_id;
-            that.viewQuestionnaireScore();
-            that.viewQuestionnaireAverage();
-
-            
-          } else if (data.code == '2') {
-            wx.hideLoading();
+          if (res.data.code == '0') {
+            const data = JSON.parse(res.data.body);
+            //const code = res.data.code;
+            if (data.code == '1') {
+              app.globalData.company = company;
+              app.globalData.main_id = data.main_id;
+              that.viewQuestionnaireScore();
+              that.viewQuestionnaireAverage();
+            } else if (data.code == '2') {
+              wx.showModal({
+                content: data.msg,
+                showCancel: false
+              })
+            } else {
+              wx.showToast({
+                title: '提交失败，请重试！',
+                icon: 'loading',
+                mask: true,
+                duration: 2000
+              })
+            }
+          }else {
             wx.showModal({
-              content: data.msg,
+              content: res.data.error || '保存错误，请重试',
               showCancel: false
             })
-          } else {
-            wx.hideLoading();
-            wx.showToast({
-              title: '提交失败，请重试！',
-              icon: 'loading',
-              mask: true,
-              duration: 2000
-            })
           }
+
         },
-        fail: function (res) {
+        fail: function(res) {
           wx.hideLoading();
           console.log(res);
           wx.showModal({
@@ -84,33 +94,33 @@ Page({
     }
 
   },
-  viewQuestionnaireScore: function () {
+  viewQuestionnaireScore: function() {
     const that = this;
     wx.request({
       url: app.requests.service.viewQuestionnaireScore,
       data: {
         main_id: app.globalData.main_id
       },
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.data.isData = true;
-        if (that.data.isData && that.data.isUserData){
+        if (that.data.isData && that.data.isUserData) {
           wx.hideLoading();
           clearTimeout(that.data.timer);
-          that.data.timer = setTimeout(function(){
+          that.data.timer = setTimeout(function() {
             wx.redirectTo({
               url: '../radar/radar?share=0'
             })
-          },100)
+          }, 100)
         }
-        if(res.data.body.length>0){
+        if (res.data.body.length > 0) {
           app.globalData.companyScore = res.data.body;
-        }else {
+        } else {
           wx.showModal({
             content: '缺少必要参数，请重新测试',
             showCancel: false,
-            success: function(res){
-              if(res.confirm){
+            success: function(res) {
+              if (res.confirm) {
                 wx.reLaunch({
                   url: '../index/index',
                 })
@@ -119,13 +129,13 @@ Page({
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.hideLoading();
         wx.showModal({
           content: '计算失败，点击重新计算',
           showCancel: false,
-          success: function(res){
-            if(res.confirm){
+          success: function(res) {
+            if (res.confirm) {
               that.viewQuestionnaireScore();
             }
           }
@@ -133,17 +143,17 @@ Page({
       },
     })
   },
-  viewQuestionnaireAverage: function () {
+  viewQuestionnaireAverage: function() {
     const that = this;
     wx.request({
       url: app.requests.service.viewQuestionnaireAverage,
-      success: function (res) {
+      success: function(res) {
         console.log(res);
         that.data.isUserData = true;
         if (that.data.isData && that.data.isUserData) {
           wx.hideLoading();
           clearTimeout(that.data.timer);
-          that.data.timer = setTimeout(function () {
+          that.data.timer = setTimeout(function() {
             wx.redirectTo({
               url: '../radar/radar?share=0'
             })
@@ -155,7 +165,7 @@ Page({
           wx.showModal({
             content: '缺少必要参数，请重新测试',
             showCancel: false,
-            success: function (res) {
+            success: function(res) {
               if (res.confirm) {
                 wx.reLaunch({
                   url: '../index/index',
@@ -165,12 +175,12 @@ Page({
           })
         }
       },
-      fail: function (res) {
+      fail: function(res) {
         wx.hideLoading();
         wx.showModal({
           content: '计算失败，点击重新计算',
           showCancel: false,
-          success: function (res) {
+          success: function(res) {
             if (res.confirm) {
               that.viewQuestionnaireAverage();
             }
@@ -179,7 +189,7 @@ Page({
       },
     })
   },
-  viewQuestionnaireTypeMaxScore: function(){
+  viewQuestionnaireTypeMaxScore: function() {
     const that = this;
     wx.request({
       url: app.requests.service.viewQuestionnaireTypeMaxScore,
@@ -191,8 +201,8 @@ Page({
         wx.showModal({
           content: '数据获取失败，请重试',
           showCancel: false,
-          success:function(res){
-            if(res.confirm){
+          success: function(res) {
+            if (res.confirm) {
               that.viewQuestionnaireTypeMaxScore();
             }
           }
@@ -200,7 +210,7 @@ Page({
       }
     })
   },
-  userInput: function (e) {
+  userInput: function(e) {
     const that = this;
     that.setData({
       enterprise: e.detail.value
@@ -209,23 +219,24 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options) {
     const that = this;
     that.viewQuestionnaireTypeMaxScore();
-
+    that.data.testStartDate = options.testStartDate;
+    that.data.testEndDate = options.testEndDate;
   },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function () {
+  onShow: function() {
     const that = this;
     clearTimeout(that.data.timer);
 
@@ -234,14 +245,14 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
+  onHide: function() {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
+  onUnload: function() {
     const that = this;
     clearTimeout(that.data.timer);
   }

@@ -1,11 +1,17 @@
 /* pages/exerciseResult/exerciseResult.wxss */
-
+.rootNode {
+  background-image: url(http://p9jd05hzv.bkt.clouddn.com/userinput.jpg);
+  background-repeat: no-repeat;
+  background-size: 100% 30%;
+  background-position-y: 0;
+}
 .inputBox {
-  height: 60%;
+  height: 35%;
+  
 }
 
 .textArea {
-  height: 30%;
+  height: 25%;
 }
 
 .btnBox {
@@ -30,7 +36,7 @@
 }
 .inputBox {
   box-sizing: border-box;
-  padding: 15% 5% 0 5%;
+  padding: 0 5% 0 5%;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -41,13 +47,13 @@
 .inputs {
   box-sizing: border-box;
   display: flex;
-  margin-top: 16rpx;
+  /* margin-top: 16rpx; */
 }
 .input {
   flex: 9;
   box-sizing: border-box;
   border: 2rpx solid #000;
-  height: 80rpx;
+  height: 60%;
   line-height: 80rpx;
 }
 .holder {
@@ -55,7 +61,7 @@
   box-sizing: border-box;
   display: inline-block;
   text-align: center;
-  padding: 20rpx 0;
+  padding: 10rpx 0;
   color: #ff0000;
 }
 .inputTitle {

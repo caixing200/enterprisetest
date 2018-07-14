@@ -35,6 +35,13 @@ App({
         }
       }
     })
+
+    wx.getSystemInfo({
+      success: res => {
+        this.globalData.mySystemInfo = res;
+        console.log(this.globalData);
+      }
+    })
   },
   globalData: {
     userInfo: null,
@@ -46,6 +53,7 @@ App({
     topScore: null,
     baseScore: null,
     shareData: null,
-    flag: false
+    flag: false,
+    mySystemInfo: null
   }
 })

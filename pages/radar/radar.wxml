@@ -16,6 +16,7 @@
     <ec-canvas id="mychart-dom-graph" canvas-id="mychart-graph" ec="{{ ec }}"></ec-canvas>
   </view>
   <view class='btnBox' hidden='{{!footBtn}}'>
+    <!-- <button class='btn' style='background-color:#ff0000;' bindtap='imgShare'>保存图片</button>  -->
     <button class='btn' style='background-color:#ff0000;' open-type='share'>去秀一下</button>
     <button class='btn' style='background-color:#04c38e;' bindtap='goExercise'>彩蛋</button>
   </view>
@@ -23,4 +24,5 @@
     <!-- <button class='btn' style='background-color:#04c38e; width:320rpx;' bindtap='goIndex'>我也测一下</button> -->
     <navigator open-type='reLaunch' url='../index/index' class='btn navBtn' style='background-color:#04c38e; width:320rpx;'>我也测一下</navigator>
   </view>
+  <canvas class='canvasView' canvas-id='canvasImg' hidden='{{canvasHide}}'></canvas>
 </view>

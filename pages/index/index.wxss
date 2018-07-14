@@ -1,15 +1,16 @@
 /**index.wxss**/
 .rootNode {
-  overflow: hidden;
   background-image: url(http://p9jd05hzv.bkt.clouddn.com/times.png);
   background-repeat: no-repeat;
   background-size: 100% auto;
-  background-position-y: 250rpx;
+  background-position-y: 300rpx;
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 }
 .title-style {
   font-size: 70rpx;
-  font-weight: 500;
+  font-weight: 700;
 }
 .btnStyle {
   font-size: 46rpx;
@@ -17,6 +18,7 @@
 }
 .footStyle {
   font-weight: 500;
+  font-size: 34rpx;
 }
 .marginB {
   margin-bottom: 26rpx;
@@ -25,11 +27,15 @@
   margin-top: 200rpx;
 }
 .titleMargin {
-  margin-top: 10%;
-  margin-bottom: 70%;
+  flex: 7;
+  box-sizing: border-box;
+  padding: 10% 0 40% 0;
+}
+.txt {
+  flex: 4;
 }
 .footMargin {
-  margin-top: 15%;
+  flex: 3;
 }
 .btnBox {
   display: inline-block;

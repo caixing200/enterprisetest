@@ -46,7 +46,7 @@
   line-height:3;
 }
 .viewTop {
-  height: 15%;
+  height: 12%;
   border-top: 2rpx solid #000;
 }
 .viewTop view {
@@ -82,7 +82,7 @@
   box-sizing: border-box;
   padding: 0 20rpx;
   border: 2rpx solid #000;
-  background-color: #ff0000;
+  background-color: #2f9a41;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -93,6 +93,7 @@
   box-sizing: border-box;
   padding-top: 40rpx;
   font-weight: 600;
+  font-size:50rpx;
 }
 .applyBody {
   height: 75%;
@@ -101,8 +102,8 @@
   box-sizing: border-box;
   display: flex;
   margin-bottom: 30rpx;
-  font-size: 36rpx;
-  font-weight: 500;
+  font-size: 38rpx;
+  font-weight: 600;
 }
 .applyTxtTitle {
   flex: 3;

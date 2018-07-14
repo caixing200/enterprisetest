@@ -16,12 +16,13 @@
   box-sizing: border-box;
 }
 .testView {
-  position: absolute;
+  /* position: absolute;
   top: 300rpx;
   left: 40rpx;
   right: 40rpx;
   bottom: 0;
-  overflow: scroll;
+  overflow: scroll; */
+  margin-top: 100rpx;
 }
 .test {
   margin-bottom: 40rpx;
@@ -60,8 +61,9 @@
 }
 .testTitle {
   font-weight: 600;
+  font-size: 50rpx;
 }
 .testOps {
-  font-size: 35rpx;
+  font-size: 37rpx;
   font-weight: 400;
 }
