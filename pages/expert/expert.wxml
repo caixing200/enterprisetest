@@ -69,4 +69,5 @@
       <button class='btn' catchtap='saveThis'>保存</button>
     </view>
   </view>
+  <canvas class='canvasView' canvas-id='canvasImg' hidden='{{canvasHide}}'></canvas>
 </view>

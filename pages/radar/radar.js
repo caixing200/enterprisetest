@@ -386,8 +386,9 @@ Page({
     let firstImg = imgPath;
     let qcodeImg = '';
     wx.downloadFile({
-      url: 'http://p9jd05hzv.bkt.clouddn.com/qcode.jpg',
+      url: 'https://vmes.deecoop.cn/questionnaire/qcode/qcode.jpg',
       success: function(res) {
+        console.log(res);
         qcodeImg = res.tempFilePath;
         that.setData({
           canvasHide: false,

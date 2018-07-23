@@ -31,7 +31,8 @@ Page({
     percent: 0,
     answerList: [],
     testStartDate: '',
-    testEndDate: ''
+    testEndDate: '',
+    fixedNum: 0
   },
 
   /**
@@ -46,7 +47,8 @@ Page({
       testListLength: list.length,
       step: 100 / list.length,
       styleState: that.createStyleState(list),
-      percent: parseInt(100 / list.length) * that.data.testIndex
+      percent: parseInt(100 / list.length) * that.data.testIndex,
+      fixedNum: (100 % list.length)>0?2:0
     }, () => {
       console.log(that.data.step)
     })
@@ -117,7 +119,7 @@ Page({
     that.setData({
       testIndex: barState ? index : (index + 1),
       styleState: that.changeStyleState(e.currentTarget.dataset.index),
-      percent: ((100 / that.data.testList.length) * (e.currentTarget.dataset.index + 1)).toFixed(2)
+      percent: ((100 / that.data.testList.length) * (e.currentTarget.dataset.index + 1)).toFixed(that.data.fixedNum)
     },()=>{
       if (barState){
         clearTimeout(that.data.navTimer);
